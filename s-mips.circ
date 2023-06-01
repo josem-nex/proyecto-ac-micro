@@ -187,9 +187,6 @@
     </tool>
     <sep/>
     <tool lib="0" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
       <a name="tristate" val="false"/>
     </tool>
     <tool lib="0" name="Pin">
@@ -216,8 +213,8 @@
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="160" stroke="#000000" stroke-width="2" width="130" x="50" y="51"/>
-      <text font-family="SansSerif" font-size="14" text-anchor="middle" x="120" y="109">ALU</text>
-      <text font-family="SansSerif" font-size="14" text-anchor="middle" x="123" y="127">SELECTOR</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="119" y="102">ALU</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="125" y="128">SELECTOR</text>
       <text font-family="SansSerif" font-size="7" font-weight="bold" text-anchor="middle" x="171" y="62">add</text>
       <text font-family="SansSerif" font-size="7" font-weight="bold" text-anchor="middle" x="151" y="62">sub</text>
       <text font-family="SansSerif" font-size="7" font-weight="bold" text-anchor="middle" x="132" y="60">mult</text>
@@ -3029,9 +3026,17 @@
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
-      <path d="M219,117 Q210,113 219,110" fill="none" stroke="#808080" stroke-width="2"/>
+      <path d="M172,167 Q186,171 172,173" fill="none" stroke="#808080" stroke-width="2"/>
       <polygon fill="none" points="169,72 170,99 196,125 171,150 171,180 170,201 221,154 221,100 169,53" stroke="#000000"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="194" y="103">ALU</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="196" y="162">ALU</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="180" y="79">inp1</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="185" y="94">inp2</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="180" y="148">sig</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="184" y="172">tic</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="178" y="183">select</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="209" y="99">out</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="209" y="133">Lo</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="214" y="144">Hi</text>
       <circ-port height="8" pin="130,80" width="8" x="166" y="66"/>
       <circ-port height="8" pin="130,190" width="8" x="166" y="86"/>
       <circ-port height="8" pin="70,260" width="8" x="166" y="146"/>
@@ -4369,8 +4374,8 @@
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="369" y="333">beq</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="160" y="350">jump</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="189" y="74">xor</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="218" y="178">INSTRUCTION</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="217" y="195">DECODER</text>
+      <text font-family="SansSerif" font-size="18" font-weight="bold" text-anchor="middle" x="218" y="178">INSTRUCTION</text>
+      <text font-family="SansSerif" font-size="18" font-weight="bold" text-anchor="middle" x="219" y="208">DECODER</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="69" y="75">Input</text>
       <circ-port height="8" pin="170,80" width="8" x="46" y="56"/>
       <circ-port height="10" pin="60,780" width="10" x="235" y="55"/>
@@ -5935,7 +5940,7 @@
   </circuit>
   <circuit name="Register_File">
     <a name="circuit" val="Register_File"/>
-    <a name="clabel" val="Reg0"/>
+    <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
@@ -6028,7 +6033,6 @@
     <wire from="(800,740)" to="(800,750)"/>
     <wire from="(110,850)" to="(110,860)"/>
     <wire from="(110,1170)" to="(110,1180)"/>
-    <wire from="(40,460)" to="(40,470)"/>
     <wire from="(90,510)" to="(90,520)"/>
     <wire from="(350,210)" to="(400,210)"/>
     <wire from="(350,370)" to="(400,370)"/>
@@ -6371,6 +6375,7 @@
     <wire from="(420,830)" to="(420,840)"/>
     <wire from="(280,850)" to="(280,860)"/>
     <wire from="(950,400)" to="(950,430)"/>
+    <wire from="(40,450)" to="(40,470)"/>
     <wire from="(80,810)" to="(80,830)"/>
     <wire from="(80,1130)" to="(80,1150)"/>
     <wire from="(770,700)" to="(770,720)"/>
@@ -6624,7 +6629,7 @@
     <comp lib="4" loc="(110,490)" name="Register">
       <a name="width" val="32"/>
       <a name="label" val="Reg0"/>
-      <a name="labelfont" val="SansSerif plain 16"/>
+      <a name="labelfont" val="SansSerif plain 14"/>
     </comp>
     <comp lib="0" loc="(660,1050)" name="Tunnel">
       <a name="width" val="32"/>
@@ -7466,11 +7471,6 @@
       <a name="width" val="32"/>
       <a name="label" val="O23"/>
     </comp>
-    <comp lib="0" loc="(40,460)" name="Constant">
-      <a name="facing" val="south"/>
-      <a name="width" val="32"/>
-      <a name="value" val="0x0"/>
-    </comp>
     <comp lib="0" loc="(780,640)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="Tic"/>
@@ -7776,6 +7776,11 @@
       <a name="width" val="32"/>
       <a name="label" val="O1"/>
     </comp>
+    <comp lib="0" loc="(40,450)" name="Constant">
+      <a name="facing" val="south"/>
+      <a name="width" val="32"/>
+      <a name="value" val="0x0"/>
+    </comp>
     <comp lib="0" loc="(140,610)" name="Tunnel">
       <a name="width" val="32"/>
       <a name="label" val="O5"/>
@@ -7952,7 +7957,7 @@
     <appear>
       <path d="M102,51 Q110,68 118,51" fill="none" stroke="#808080" stroke-width="2"/>
       <rect fill="none" height="70" stroke="#000000" stroke-width="2" width="80" x="50" y="50"/>
-      <text font-family="SansSerif" font-size="16" text-anchor="middle" x="88" y="85">PC</text>
+      <text font-family="SansSerif" font-size="18" font-weight="bold" text-anchor="middle" x="89" y="90">PC</text>
       <text font-family="SansSerif" font-size="8" text-anchor="middle" x="69" y="110">rst</text>
       <text font-family="SansSerif" font-size="8" text-anchor="middle" x="110" y="111">en</text>
       <text font-family="SansSerif" font-size="8" text-anchor="middle" x="121" y="62">tic</text>
@@ -8954,6 +8959,30 @@
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="80" stroke="#000000" stroke-width="2" width="91" x="130" y="50"/>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="207" y="93">out</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="142" y="66">ALU</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="144" y="92">PC</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="140" y="121">SP</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="201" y="122">pop</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="160" y="120">push</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="209" y="62">LW</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="179" y="62">SW</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="155" y="61">isPC</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="176" y="83">MEM</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="177" y="103">ADD.</text>
+      <circ-port height="8" pin="140,100" width="8" x="126" y="56"/>
+      <circ-port height="8" pin="240,120" width="8" x="196" y="126"/>
+      <circ-port height="8" pin="240,160" width="8" x="156" y="126"/>
+      <circ-port height="8" pin="140,200" width="8" x="126" y="86"/>
+      <circ-port height="8" pin="240,200" width="8" x="206" y="46"/>
+      <circ-port height="8" pin="240,240" width="8" x="176" y="46"/>
+      <circ-port height="8" pin="240,280" width="8" x="146" y="46"/>
+      <circ-port height="8" pin="140,310" width="8" x="126" y="116"/>
+      <circ-port height="10" pin="730,100" width="10" x="215" y="85"/>
+      <circ-anchor facing="east" height="6" width="6" x="217" y="87"/>
+    </appear>
     <wire from="(680,180)" to="(680,190)"/>
     <wire from="(540,120)" to="(540,130)"/>
     <wire from="(600,80)" to="(600,90)"/>
@@ -9144,6 +9173,106 @@
     </comp>
     <comp lib="0" loc="(260,200)" name="Tunnel">
       <a name="label" val="LW"/>
+    </comp>
+  </circuit>
+  <circuit name="Data_Path">
+    <a name="circuit" val="Data_Path"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp loc="(660,250)" name="Register_File"/>
+    <comp loc="(670,530)" name="ALU_Selector"/>
+    <comp loc="(560,100)" name="RF_Selector"/>
+    <comp loc="(850,210)" name="Branch_Control"/>
+    <comp loc="(280,70)" name="Memory_Addres"/>
+    <comp loc="(760,380)" name="ALU"/>
+    <comp loc="(80,130)" name="Inv"/>
+    <comp loc="(810,100)" name="PC"/>
+    <comp loc="(150,190)" name="Instruction_Decoder"/>
+  </circuit>
+  <circuit name="G_Instruction">
+    <a name="circuit" val="G_Instruction"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M54,109 Q61,97 66,110" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="50" stroke="#000000" stroke-width="2" width="61" x="50" y="60"/>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="86" y="107">reset</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="58" y="100">tic</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="102" y="67">out</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="67" y="68">inp</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="63" y="79">enb</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="82" y="94">G_INS</text>
+      <circ-port height="8" pin="130,90" width="8" x="56" y="56"/>
+      <circ-port height="8" pin="60,170" width="8" x="56" y="106"/>
+      <circ-port height="8" pin="60,220" width="8" x="96" y="106"/>
+      <circ-port height="8" pin="60,260" width="8" x="46" y="76"/>
+      <circ-port height="10" pin="380,90" width="10" x="105" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="107" y="67"/>
+    </appear>
+    <wire from="(190,100)" to="(220,100)"/>
+    <wire from="(130,90)" to="(220,90)"/>
+    <wire from="(350,90)" to="(380,90)"/>
+    <wire from="(250,90)" to="(310,90)"/>
+    <wire from="(190,100)" to="(190,110)"/>
+    <wire from="(230,110)" to="(230,150)"/>
+    <wire from="(60,220)" to="(80,220)"/>
+    <wire from="(60,260)" to="(80,260)"/>
+    <wire from="(220,150)" to="(230,150)"/>
+    <wire from="(240,130)" to="(250,130)"/>
+    <wire from="(60,170)" to="(70,170)"/>
+    <wire from="(240,110)" to="(240,130)"/>
+    <comp lib="0" loc="(60,260)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Enable"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(190,110)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="Enable"/>
+    </comp>
+    <comp lib="0" loc="(60,220)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Reset"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp loc="(350,90)" name="Inv"/>
+    <comp lib="0" loc="(80,220)" name="Tunnel">
+      <a name="label" val="Reset"/>
+    </comp>
+    <comp lib="0" loc="(70,170)" name="Tunnel">
+      <a name="label" val="Tic"/>
+    </comp>
+    <comp lib="0" loc="(220,150)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="Tic"/>
+    </comp>
+    <comp lib="0" loc="(80,260)" name="Tunnel">
+      <a name="label" val="Enable"/>
+    </comp>
+    <comp lib="4" loc="(250,90)" name="Register">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(130,90)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="INPUT"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(60,170)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(380,90)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="OUTPUT"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(250,130)" name="Tunnel">
+      <a name="label" val="Reset"/>
     </comp>
   </circuit>
 </project>
