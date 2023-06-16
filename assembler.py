@@ -140,7 +140,8 @@ def fill_symbol_table(inputFile):
         match = comment_re.match(line)
 
         if not match:
-            raise AssemblerSyntaxError(lineNo, "Unable to parse line: %s" % line)
+            raise AssemblerSyntaxError(
+                lineNo, "Unable to parse line: %s" % line)
 
         line = match.group("important")
 
@@ -149,7 +150,8 @@ def fill_symbol_table(inputFile):
         match = label_re.match(line)
 
         if not match:
-            raise AssemblerSyntaxError(lineNo, "Unable to parse line: %s" % line)
+            raise AssemblerSyntaxError(
+                lineNo, "Unable to parse line: %s" % line)
 
         labels_string = match.group("labels")
 
@@ -160,9 +162,11 @@ def fill_symbol_table(inputFile):
 
         for label in labels:
             if not validLabel(label):
-                raise AssemblerSyntaxError(lineNo, "Invalid label: '%s'" % label)
+                raise AssemblerSyntaxError(
+                    lineNo, "Invalid label: '%s'" % label)
             if label in symbols:
-                raise AssemblerSyntaxError(lineNo, "Label %s already defined" % label)
+                raise AssemblerSyntaxError(
+                    lineNo, "Label %s already defined" % label)
             symbols[label] = instructionsSeen
 
         instruction = match.group("gunk").replace(",", " ").strip()
@@ -180,13 +184,14 @@ def imm_check(signed, both_allowed, immediate, lineNo):
         if signed and (immediate > 2**15 - 1 or immediate < -(2**15)):
             raise AssemblerSyntaxError(lineNo, "signed immediate out of range")
         if (not signed) and (immediate > 2**16 - 1 or immediate < 0):
-            raise AssemblerSyntaxError(lineNo, "unsigned immediate out of range")
+            raise AssemblerSyntaxError(
+                lineNo, "unsigned immediate out of range")
 
 
 def pprintInstr(separators, num):
     binary = "{0:032b}".format(num)
     for i, sep in enumerate(separators):
-        binary = "|".join([binary[: sep + i], binary[sep + i :]])
+        binary = "|".join([binary[: sep + i], binary[sep + i:]])
     return binary
 
 
@@ -326,7 +331,8 @@ def assemble_instructions(inputFile):
                 label = itype_1.group("label")
                 # find label
                 if label not in symbols:
-                    raise AssemblerSyntaxError(lineNo, "unknown label %s" % label)
+                    raise AssemblerSyntaxError(
+                        lineNo, "unknown label %s" % label)
                 instructionNo = symbols[label]
                 offset = instructionNo - (instructionsSeen + 1)
                 if offset > 2**15 - 1 or offset < -(2**15):
@@ -338,7 +344,8 @@ def assemble_instructions(inputFile):
                 num = opcode << 26 | rs << 21 | rt << 16 | (offset & 65535)
                 debug(
                     "{0:s} itype: rs: {1:d} offset: {4:d} hex_code: {3:04x}\n{2:s}\n".format(
-                        instruction, rs, pprintInstr([6, 11, 16], num), num, offset
+                        instruction, rs, pprintInstr(
+                            [6, 11, 16], num), num, offset
                     )
                 )
 
@@ -350,7 +357,8 @@ def assemble_instructions(inputFile):
                 label = branch.group("label")
                 # find label
                 if label not in symbols:
-                    raise AssemblerSyntaxError(lineNo, "unknown label %s" % label)
+                    raise AssemblerSyntaxError(
+                        lineNo, "unknown label %s" % label)
                 instructionNo = symbols[label]
                 offset = instructionNo - (instructionsSeen + 1)
                 if offset > 2**15 - 1 or offset < -(2**15):
@@ -392,7 +400,8 @@ def assemble_instructions(inputFile):
                 # find label
                 label = jtype.group("label")
                 if label not in symbols:
-                    raise AssemblerSyntaxError(lineNo, "unknown label %s" % label)
+                    raise AssemblerSyntaxError(
+                        lineNo, "unknown label %s" % label)
                 instructionNo = symbols[label]
                 num = opcode << 26 | (instructionNo & 67108863)
                 debug(

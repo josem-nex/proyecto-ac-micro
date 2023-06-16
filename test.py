@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import subprocess
 import optparse
@@ -62,7 +63,7 @@ class TestCase:
             self.result = output[:r].strip()
             s = output.find("Hz (")
             e = output.find(" ticks", s)
-            self.speed = output[s + 4 : e]
+            self.speed = output[s + 4: e]
 
             self.failed = self.result != self.expected_result or (
                 self.expected_speed != None and self.speed > self.expected_speed
@@ -147,11 +148,13 @@ class TestSuite:
 
     def searchAsmFiles(self):
         for root, _, files in os.walk(self.path):
-            print_verbose(verbose_level_all, "Buscando archivos .asm en: ", root)
+            print_verbose(verbose_level_all,
+                          "Buscando archivos .asm en: ", root)
             for file in files:
                 try:
                     if file.endswith(".asm"):
-                        print_verbose(verbose_level_all, "Archivo encontrado: ", file)
+                        print_verbose(verbose_level_all,
+                                      "Archivo encontrado: ", file)
                         path = os.path.join(root, file)
                         yield file[:-4], path
                 except Exception as e:
@@ -163,7 +166,8 @@ class TestSuite:
         try:
             os.mkdir(base_dir)
         except FileExistsError as e:
-            print_verbose(verbose_level_all, "Directorio existente: ", base_dir)
+            print_verbose(verbose_level_all,
+                          "Directorio existente: ", base_dir)
         print_verbose(verbose_level_all, "Compilando: ", path)
         status = os.system(f"python assembler.py {path} -o {base_dir}")
         if status != 0:
@@ -258,7 +262,8 @@ if __name__ == "__main__":
     try:
         os.mkdir(output_folder)
     except FileExistsError as e:
-        print_verbose(verbose_level_all, "Directorio existente: ", output_folder)
+        print_verbose(verbose_level_all,
+                      "Directorio existente: ", output_folder)
 
     if not os.path.exists(template):
         print("El archivo de template no existe")

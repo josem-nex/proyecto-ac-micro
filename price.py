@@ -93,8 +93,7 @@ def get_circuit_info(comp, level=0):
 
     price = 0
     parts = xml_root.findall("./circuit[@name='{}']/comp".format(circuit_name))
-    parts.extend(xml_root.findall(
-        "./circuit[@name='{}']/wire".format(circuit_name)))
+    parts.extend(xml_root.findall("./circuit[@name='{}']/wire".format(circuit_name)))
 
     circuit_bill[circuit_name] = {"price": 0, "amount": 1, "parts": {}}
 
@@ -105,8 +104,7 @@ def get_circuit_info(comp, level=0):
         if comp_id in circuit_bill[circuit_name]["parts"]:
             circuit_bill[circuit_name]["parts"][comp_id]["amount"] += 1
             if detailed:
-                circuit_bill[circuit_name]["parts"][comp_id]["units"].append(
-                    info)
+                circuit_bill[circuit_name]["parts"][comp_id]["units"].append(info)
             circuit_bill[circuit_name]["parts"][comp_id]["total cost"] += info["price"]
         else:
             data = {"amount": 1, "total cost": info["price"]}

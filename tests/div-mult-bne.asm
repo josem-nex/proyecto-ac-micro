@@ -1,8 +1,8 @@
 addi r1 r0 32
-addi r2 r0 1
+addi r2 r0 -1
 addi r3 r0 0
 addi r4 r0 20
-addi r5 r0 10
+addi r5 r0 -10
 addi r8 r0 2
 
 ciclo:
