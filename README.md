@@ -1,4 +1,4 @@
-# Orientación Proyecto AC
+# Orientación Proyecto AC (Arquitectura de Computadoras)
 
 ## Materiales
 
